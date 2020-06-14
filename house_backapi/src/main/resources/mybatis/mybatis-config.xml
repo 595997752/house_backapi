@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--配置实体类型的别名-->
+	<typeAliases>
+		<!--为某别名个实体类取-->
+		<!--1.利用typeAlias为某个实体类取别名
+        <typeAlias type="com.kgc.entity.Grade" alias="Grade"><typeAlias>
+        -->
+
+		<!--2.使用package为包下所有的实体类型取别名
+           name 指定包名、生成实体的别名就是类名
+        -->
+		<package name="com.team.house_backapi.entity"></package>
+	</typeAliases>
+    <!-- 指定义连接数据的配置 -->
+	<!--<environments default="development">
+		<environment id="development">
+		<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+			<property name="driver" value="com.mysql.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://localhost:3306/k9512db"/>
+			<property name="username" value="root"/>
+			<property name="password" value=""/>
+			</dataSource>
+		</environment>
+	</environments>-->
+
+	<!--添加分页的插件-->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+	</plugins>
+	
+	<!-- 加载sql映射文件 -->
+	<mappers>
+		<!--<mapper resource="com/kgc/grade/dao/GradeMapper.xml"></mapper>
+		<mapper resource="com/kgc/grade/dao/StudentsMapper.xml"></mapper>-->
+
+		<package name="com.team.house_backapi.mapper"></package>
+	</mappers>
+</configuration>
